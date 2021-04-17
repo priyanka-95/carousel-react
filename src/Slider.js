@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {data} from './data';
 import styled from 'styled-components';
+import CheckBox from '../src/Section/CheckBox'; 
 
 const Productdiv = styled.div`
    display:flex;
@@ -38,7 +39,7 @@ const CategoryImg = styled.img`
 `;
 const SpaceDiv= styled.div`
     height:250px;
-    width:1325px;
+    width:700px;
 `;
 const Header = styled.div`
     background-color:#FFC0CB;
@@ -61,6 +62,9 @@ border: none;
 cursor: pointer;
 }
 `;
+const FlexDiv =styled.div`
+    display:flex;
+`
 const ImageDiv = styled.div`
     width:549px;
 `;
@@ -68,6 +72,20 @@ const ProductListingDiv = styled.div`
     display:flex;
 `;
 const Slider=()=>{
+    const[Filters,setFilters]=useState({
+        continents:[],
+    })
+    const  showFiltersResults = (filters)=>{
+
+    }  
+    const handlefilters =(filters, cat) =>{
+        console.log('filters',filters);
+        const newFilters = {...Filters}
+        newFilters[cat] = filters
+
+        setFilters(newFilters)
+
+    }
     //let sliderArray =[1,2,3,4];
     let productdetail =[];
     const[x,setX] = useState(0);
@@ -98,7 +116,10 @@ const Slider=()=>{
 return(
     <Maindiv>
         <Header><SearchContainer/></Header>
+        <FlexDiv>
         <SpaceDiv/>
+        <CheckBox handlefilters={filters =>handlefilters(filters,"category")}/>
+        </FlexDiv>
         <ProductListingDiv>
         {  x!=0 &&
         <LeftButton onClick={goLeft}>left</LeftButton>}
