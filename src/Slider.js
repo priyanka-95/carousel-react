@@ -69,32 +69,57 @@ const ProductListingDiv = styled.div`
 `;
 const Slider=()=>{
     //let sliderArray =[1,2,3,4];
+    let productdetail =[];
     const[x,setX] = useState(0);
+    // if(!Array.isArray(slides)||data.length<=0){
+    //     return null;
+    // }
     const goLeft=()=>{
-        setX(x+100);
+        console.log(x);
+        setX(x === data.length-1 ? 0 :x-1);
     }
     const goRight=()=>{
-        setX(x-100);
+        console.log(x); 
+        setX(x === data.length-1 ? 0 :x+1);
+    }
+    for(let i=0;i<3;i++){
+        (data.length>(i+x))&& 
+        productdetail.push(
+                <div key={data[i+x].id}>
+                    {(
+                  <ImageDiv>
+                  <CategoryImg alt="" src={data[i+x].image}/>
+                 <Cattegorydiv>{data[i+x].category}</Cattegorydiv> 
+            <div>{data[i+x].price}</div>
+        </ImageDiv>  
+                    )}</div>
+               )
     }
 return(
     <Maindiv>
         <Header><SearchContainer/></Header>
         <SpaceDiv/>
         <ProductListingDiv>
-        <LeftButton onClick={goLeft}>left</LeftButton>
+        {  x!=0 &&
+        <LeftButton onClick={goLeft}>left</LeftButton>}
         <Productdiv>
-        {data.map(el=>{
+            {productdetail}
+        {/* {data.map((el,id)=>{
+            console.log('x',x);
             return(
                 <div key={el.id}>
+                    {id===x &&(
                   <ImageDiv>
                   <CategoryImg alt="" src={el.image}/>
                  <Cattegorydiv>{el.category}</Cattegorydiv> 
-                  </ImageDiv>  
-                </div>
-            )
-        })}
+            <div>{el.price}</div>
+        </ImageDiv>  
+                    )}</div>
+               )
+        })} */}
         </Productdiv>
-        <RightButton onClick={goRight}>right</RightButton>
+        {x+3!=data.length &&
+        <RightButton onClick={goRight}>right</RightButton>}
         </ProductListingDiv>
     </Maindiv>
 )
