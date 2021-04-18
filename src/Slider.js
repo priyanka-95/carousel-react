@@ -8,7 +8,6 @@ const Productdiv = styled.div`
    margin-left:80px;
 `;
 const Maindiv = styled.div`
-    width:1325px;
     height:100%;
     align-item:center;
 `; 
@@ -39,7 +38,7 @@ const CategoryImg = styled.img`
 `;
 const SpaceDiv= styled.div`
     height:250px;
-    width:700px;
+    width:1450px;
 `;
 const Header = styled.div`
     background-color:#FFC0CB;
@@ -51,17 +50,17 @@ const Cattegorydiv = styled.div`
     font-family: Times;
     text-transform: capitalize;
 `;
-const SearchContainer = styled.button`
-float: right;
-padding: 6px 10px;
-margin-top: 8px;
-margin-right: 16px;
-background: #ddd;
-font-size: 17px;
-border: none;
-cursor: pointer;
-}
-`;
+// const SearchContainer = styled.button`
+// float: right;
+// padding: 6px 10px;
+// margin-top: 8px;
+// margin-right: 16px;
+// background: #ddd;
+// font-size: 17px;
+// border: none;
+// cursor: pointer;
+// }
+// `;
 const FlexDiv =styled.div`
     display:flex;
 `
@@ -75,7 +74,9 @@ const Slider=()=>{
     const[Filters,setFilters]=useState({
         continents:[],
     })
+    const[products,setProducts]= useState(data);
     const  showFiltersResults = (filters)=>{
+
 
     }  
     const handlefilters =(filters, cat) =>{
@@ -84,7 +85,14 @@ const Slider=()=>{
         newFilters[cat] = filters
 
         setFilters(newFilters)
-
+        if(filters.length>0){
+        const filteredProducts = data.filter((product)=>{
+            return filters.includes(product.category)
+        });
+        setProducts(filteredProducts);
+    }else{
+        setProducts(data);
+    }
     }
     //let sliderArray =[1,2,3,4];
     let productdetail =[];
@@ -94,14 +102,15 @@ const Slider=()=>{
     // }
     const goLeft=()=>{
         console.log(x);
-        setX(x === data.length-1 ? 0 :x-1);
+        setX(x === products.length-1 ? 0 :x-1);
     }
     const goRight=()=>{
         console.log(x); 
-        setX(x === data.length-1 ? 0 :x+1);
+        setX(x === products.length-1 ? 0 :x+1);
     }
     for(let i=0;i<3;i++){
         (data.length>(i+x))&& 
+        (products.length>(i+x))&& 
         productdetail.push(
                 <div key={data[i+x].id}>
                     {(
@@ -115,7 +124,7 @@ const Slider=()=>{
     }
 return(
     <Maindiv>
-        <Header><SearchContainer/></Header>
+        <Header/>
         <FlexDiv>
         <SpaceDiv/>
         <CheckBox handlefilters={filters =>handlefilters(filters,"category")}/>
