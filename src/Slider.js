@@ -14,11 +14,11 @@ const Maindiv = styled.div`
 `; 
 const LeftButton = styled.div`
     position:absolute;
-    width: 24px;
+    width: 30px;
     left: 14px;
+    height: 20px;
     cursor: pointer;
     border: 1px solid grey;
-    padding: 2px 8px 2px 2px;
     border-radius: 5px;
     text-transform: capitalize;
     background-color: #FFC0CB;
@@ -28,10 +28,10 @@ const RightButton = styled.div`
     height:20px;
     cursor: pointer;
     border: 1px solid grey;
-    padding: 2px 8px 2px 2px;
     border-radius: 5px;
     text-transform: capitalize;
     background-color: #FFC0CB;
+    margin-left: 30px;
 `
 const CategoryImg = styled.img`
     width:400px;
@@ -146,7 +146,7 @@ return(
         </FlexDiv>
         <ProductListingDiv>
         { (x!=0 && products.length>2) &&
-        <LeftButton onClick={goLeft}>left</LeftButton>}
+        <LeftButton onClick={goLeft}>{'<'}</LeftButton>}
         <Productdiv>
             {productdetail}
         {/* {data.map((el,id)=>{
@@ -164,7 +164,7 @@ return(
         })} */}
         </Productdiv>
         {(x+3!=data.length && products.length>2) &&
-        <RightButton onClick={goRight}>right</RightButton>}
+        <RightButton onClick={goRight}>{'>'}</RightButton>}
         </ProductListingDiv>
     </Maindiv>
 )
