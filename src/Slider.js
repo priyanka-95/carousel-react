@@ -132,7 +132,6 @@ const Slider=()=>{
                     )}</ProductWidth>
                )
     }
-    console.log("products.length",products.length);
 return(
     <Maindiv>
         <Header/>
@@ -146,7 +145,7 @@ return(
         <Productdiv>
             {productdetail}
         </Productdiv>
-        {(x+3!=data.length && products.length>2) &&
+        {(products.length > (x+1)*3) &&
         <RightButton onClick={goRight}>{'>'}</RightButton>}
         </ProductListingDiv>
     </Maindiv>
