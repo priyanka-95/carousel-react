@@ -40,4 +40,12 @@ export const data=[{
 "category":"T-shirt",
 "name":"zara",
 "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-VKkJGBfrwB8Sz3uzTosMqZ1YEWpoWw3C7Q&usqp=CAU",
-}]
+},
+{
+    "id":7,
+    "price":"Price $80",
+    "category":"perfume",
+    "name":"carol",
+    "image":"https://static.onecms.io/wp-content/uploads/sites/23/2019/02/01/tout-best-perfumes.jpg",
+    },
+]

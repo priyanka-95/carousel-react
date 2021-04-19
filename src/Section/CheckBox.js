@@ -7,8 +7,10 @@ display:flex;
         width: 20px; 
         height: 20px; 
       }
-      margin-top: 80px;
+      position: absolute;
       width: 600px;
+      left: 1398px;
+    top: 102px;
 `;
 const Filterdiv = styled.div`
       display:flex;
@@ -22,11 +24,11 @@ const CategoryName = styled.div`
 `; 
 const category = [
   {
-    _id: "Perfume",
+    _id: "perfume",
     category: "Perfume",
   },
   {
-    _id: "Oil",
+    _id: "oil",
     category: "Oil",
   },
   {

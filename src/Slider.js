@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {data} from './data';
 import styled from 'styled-components';
 import CheckBox from '../src/Section/CheckBox'; 
+import "./App.css"
 
 const Productdiv = styled.div`
    display:flex;
@@ -66,6 +67,17 @@ const FlexDiv =styled.div`
 `
 const ImageDiv = styled.div`
     width:549px;
+    &:nth-child(1){
+        width:520px;
+    }
+    
+`;
+const ProductWidth = styled.div`
+
+&:nth-child(2){
+  img { width:520px;
+  }
+}
 `;
 const ProductListingDiv = styled.div`
     display:flex;
@@ -73,12 +85,13 @@ const ProductListingDiv = styled.div`
 const Slider=()=>{
     const[Filters,setFilters]=useState({
         continents:[],
-    })
+    });
     const[products,setProducts]= useState(data);
-    const  showFiltersResults = (filters)=>{
+    const[x,setX] = useState(0);
+    // const  showFiltersResults = (filters)=>{
 
 
-    }  
+    // }  
     const handlefilters =(filters, cat) =>{
         console.log('filters',filters);
         const newFilters = {...Filters}
@@ -93,10 +106,11 @@ const Slider=()=>{
     }else{
         setProducts(data);
     }
+    setX(0);
     }
     //let sliderArray =[1,2,3,4];
     let productdetail =[];
-    const[x,setX] = useState(0);
+
     // if(!Array.isArray(slides)||data.length<=0){
     //     return null;
     // }
@@ -112,16 +126,17 @@ const Slider=()=>{
         (data.length>(i+x))&& 
         (products.length>(i+x))&& 
         productdetail.push(
-                <div key={data[i+x].id}>
+                <ProductWidth  key={products[i+x].id}>
                     {(
-                  <ImageDiv>
-                  <CategoryImg alt="" src={data[i+x].image}/>
-                 <Cattegorydiv>{data[i+x].category}</Cattegorydiv> 
-            <div>{data[i+x].price}</div>
+                  <ImageDiv className="product">
+                  <CategoryImg alt="" src={products[i+x].image}/>
+                 <Cattegorydiv>{products[i+x].category}</Cattegorydiv> 
+            <div>{products[i+x].price}</div>
         </ImageDiv>  
-                    )}</div>
+                    )}</ProductWidth>
                )
     }
+    console.log("products.length",products.length);
 return(
     <Maindiv>
         <Header/>
@@ -130,7 +145,7 @@ return(
         <CheckBox handlefilters={filters =>handlefilters(filters,"category")}/>
         </FlexDiv>
         <ProductListingDiv>
-        {  x!=0 &&
+        { (x!=0 && products.length>2) &&
         <LeftButton onClick={goLeft}>left</LeftButton>}
         <Productdiv>
             {productdetail}
@@ -148,7 +163,7 @@ return(
                )
         })} */}
         </Productdiv>
-        {x+3!=data.length &&
+        {(x+3!=data.length && products.length>2) &&
         <RightButton onClick={goRight}>right</RightButton>}
         </ProductListingDiv>
     </Maindiv>
