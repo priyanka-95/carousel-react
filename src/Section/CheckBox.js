@@ -1,5 +1,4 @@
 import React,{useState} from "react";
-//import {data} from '../data.js';
 import styled from "styled-components";
 const Maindiv= styled.div`
 display:flex;

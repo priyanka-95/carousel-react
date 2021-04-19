@@ -1,6 +1,7 @@
 
 export const data=[{
     "id":1,
+    "name":"Pink",
     "price":"Price $100",
     "category":"perfume",
     "name":"carol",
@@ -8,13 +9,14 @@ export const data=[{
 },
 {
     "id":2,
+    "name":"johshon",
     "price":"Price $200",
     "category":"oil",
-    "name":"johshon",
     "image":"https://www.k9instinct.com/uploads/1/4/7/0/14702016/istockphoto-1015542022-612x612_orig.jpg",
 },
 {
     "id":3,
+    "name":"Hrex",
     "price":"Price $300",
     "category":"T-shirt",
     "name":"Hrex",
@@ -24,28 +26,28 @@ export const data=[{
 "id":4,
 "price":"Price $70",
 "category":"perfume",
-"name":"carol",
+"name":"Coco",
 "image":"https://faveable.com/wp-content/uploads/2021/01/Best-Perfumes-for-Women.jpg",
 },
 {
 "id":5,
 "price":"Price $50",
 "category":"oil",
-"name":"johshon",
+"name":"Baby oil",
 "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDhxeRmcpCrZbbXnEoY4A-smu25vTn8muakw&usqp=CAU",
 },
 {
 "id":6,
 "price":"Price $300",
 "category":"T-shirt",
-"name":"zara",
+"name":"Zara",
 "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-VKkJGBfrwB8Sz3uzTosMqZ1YEWpoWw3C7Q&usqp=CAU",
 },
 {
     "id":7,
     "price":"Price $80",
     "category":"perfume",
-    "name":"carol",
+    "name":"Heaven",
     "image":"https://static.onecms.io/wp-content/uploads/sites/23/2019/02/01/tout-best-perfumes.jpg",
     },
 ]

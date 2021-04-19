@@ -108,12 +108,7 @@ const Slider=()=>{
     }
     setX(0);
     }
-    //let sliderArray =[1,2,3,4];
     let productdetail =[];
-
-    // if(!Array.isArray(slides)||data.length<=0){
-    //     return null;
-    // }
     const goLeft=()=>{
         console.log(x);
         setX(x === products.length-1 ? 0 :x-1);
@@ -130,7 +125,8 @@ const Slider=()=>{
                     {(
                   <ImageDiv className="product">
                   <CategoryImg alt="" src={products[i+x].image}/>
-                 <Cattegorydiv>{products[i+x].category}</Cattegorydiv> 
+                    <Cattegorydiv>{products[i+x].name}</Cattegorydiv>
+                 <Cattegorydiv>{products[i+x].category}</Cattegorydiv>
             <div>{products[i+x].price}</div>
         </ImageDiv>  
                     )}</ProductWidth>
@@ -149,19 +145,6 @@ return(
         <LeftButton onClick={goLeft}>{'<'}</LeftButton>}
         <Productdiv>
             {productdetail}
-        {/* {data.map((el,id)=>{
-            console.log('x',x);
-            return(
-                <div key={el.id}>
-                    {id===x &&(
-                  <ImageDiv>
-                  <CategoryImg alt="" src={el.image}/>
-                 <Cattegorydiv>{el.category}</Cattegorydiv> 
-            <div>{el.price}</div>
-        </ImageDiv>  
-                    )}</div>
-               )
-        })} */}
         </Productdiv>
         {(x+3!=data.length && products.length>2) &&
         <RightButton onClick={goRight}>{'>'}</RightButton>}
